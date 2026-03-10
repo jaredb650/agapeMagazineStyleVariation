@@ -144,23 +144,16 @@ body::after {
 .folio {
   position: relative;
   width: min(calc(100vw - 34px), var(--max));
-  margin: 0 auto 36px;
-  overflow: hidden;
+  margin: 0 auto;
+  overflow: visible;
   border: 1px solid var(--frame-border);
   background:
-    linear-gradient(180deg, rgba(20, 34, 36, 0.88), rgba(14, 24, 27, 0.92));
+    linear-gradient(180deg, rgba(20, 34, 36, 0.92), rgba(14, 24, 27, 0.95));
   box-shadow:
     0 0 0 1px rgba(100, 160, 155, 0.06),
     0 4px 30px rgba(0, 0, 0, 0.4),
     0 20px 60px rgba(0, 0, 0, 0.3),
     inset 0 1px 0 rgba(140, 180, 175, 0.08);
-  transform-origin: top center;
-  will-change: transform, opacity;
-}
-
-/* ─── MAGAZINE PAGE SYSTEM ─── */
-.folio[data-page] {
-  overflow: visible;
 }
 
 /* Page fold container — positioned at bottom-right corner */
@@ -282,10 +275,7 @@ body::after {
 .folio__spine::before { top: 18%; }
 .folio__spine::after { top: 52%; }
 
-/* slight rotations for zine feel */
-.folio--residents { transform: rotate(-0.3deg); }
-.folio--events { transform: rotate(0.2deg); }
-.folio--archive { transform: rotate(-0.15deg); }
+/* slight rotations removed — conflicts with GSAP page-turn transforms */
 .folio--manifesto {
   background:
     linear-gradient(90deg, rgba(14, 22, 25, 0.98) 0 50%, rgba(18, 28, 32, 0.98) 50% 100%);
