@@ -154,7 +154,84 @@ body::after {
     0 4px 30px rgba(0, 0, 0, 0.4),
     0 20px 60px rgba(0, 0, 0, 0.3),
     inset 0 1px 0 rgba(140, 180, 175, 0.08);
-  transform-origin: bottom center;
+  transform-origin: top center;
+  will-change: transform, opacity;
+}
+
+/* ─── MAGAZINE PAGE SYSTEM ─── */
+.folio[data-page] {
+  overflow: visible;
+}
+
+/* Page fold container — positioned at bottom-right corner */
+.folio__fold {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 200px;
+  height: 200px;
+  z-index: 10;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+/* The curling corner triangle */
+.folio__fold-corner {
+  --fold-size: 0px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 0 var(--fold-size) var(--fold-size);
+  border-color: transparent transparent rgba(22, 55, 57, 0.6) transparent;
+  filter: drop-shadow(-4px -4px 8px rgba(0, 0, 0, 0.5));
+  transition: border-width 0.05s linear;
+}
+
+/* Shadow cast by the fold onto the page beneath */
+.folio__fold-shadow {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 260px;
+  height: 260px;
+  background:
+    radial-gradient(
+      ellipse at 100% 100%,
+      rgba(0, 0, 0, 0.5) 0%,
+      rgba(0, 0, 0, 0.2) 40%,
+      transparent 70%
+    );
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* The lighter underside of the page (when it curls) */
+.folio__fold-underside {
+  --fold-size: 0px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 0 var(--fold-size) var(--fold-size);
+  border-color: transparent transparent rgba(180, 210, 205, 0.15) transparent;
+  transform: translate(2px, 2px);
+}
+
+/* Page number — bottom-right of each folio */
+.folio__page-num {
+  position: absolute;
+  bottom: 16px;
+  right: 24px;
+  color: var(--ink-20);
+  font-family: var(--accent);
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  z-index: 5;
 }
 
 /* metallic sheen on top-left corner (like press kit light reflection) */
