@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AGAPE | Event Ledger</title>
+  <meta
+    name="description"
+    content="The AGAPE event ledger: an editorial and experimental archive of upcoming nights, ticket sheets, and rave fragments."
+  >
+  <link rel="icon" href="images/agape_logo_white.png" type="image/png">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/events.css">
+</head>
+<body class="issue-body issue-body--events">
+  <div class="paper-noise" aria-hidden="true"></div>
+
+  <nav class="floating-nav" id="floatingNav">
+    <button
+      id="navTrigger"
+      class="floating-nav__trigger"
+      type="button"
+      aria-controls="navSheet"
+      aria-expanded="false"
+      aria-label="Open issue index"
+    >
+      <span class="floating-nav__brand">
+        <img src="images/agape_logo_white.png" alt="Agape logo" class="floating-nav__logo">
+        <span class="floating-nav__issue">Issue Index</span>
+      </span>
+      <span class="floating-nav__burger" aria-hidden="true">
+        <span></span>
+        <span></span>
+      </span>
+    </button>
+
+    <div class="floating-nav__sheet" id="navSheet">
+      <div class="floating-nav__sheet-grid">
+        <div class="floating-nav__meta">
+          <p class="floating-nav__label">Event Ledger / Spring 2026</p>
+          <p class="floating-nav__note">A clipped insert for upcoming nights, archive rows, and the rooms they leave behind.</p>
+        </div>
+        <ul class="floating-nav__links">
+          <li><a href="index.html" data-nav-link>Cover Story</a></li>
+          <li><a href="#residents" data-nav-link>Residents</a></li>
+          <li><a href="#ledger" data-nav-link>Ledger</a></li>
+          <li><a href="#closing" data-nav-link>Back Page</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main class="events-main">
+    <section class="events-hero">
+      <div class="events-hero__backdrop">
+        <img src="images/hero-crowd-wide.jpg" alt="Agape crowd" class="events-hero__backdrop-img">
+      </div>
+      <div class="events-hero__sheet" data-lift>
+        <p class="issue-label" data-reveal>Event Ledger / Admit One / Spring 2026</p>
+        <h1 class="events-hero__title" data-reveal>Every night is a printed record.</h1>
+        <p class="events-hero__deck" data-reveal>
+          The next rooms, stripped down to the essentials. Residents up front. Dates below. No duplicate layouts, no filler.
+        </p>
+      </div>
+    </section>
+
+    <section class="folio folio--event-residents" id="residents" data-lift>
+      <header class="section-head section-head--split">
+        <div>
+          <p class="issue-label" data-reveal>Residents / Recurring Cast</p>
+          <h2 class="issue-title" data-reveal>Residents</h2>
+        </div>
+        <p class="section-head__text" data-reveal>
+          The same core names driving the issue also drive the rooms. This page should show that, not hide it.
+        </p>
+      </header>
+
+      <div class="event-residents-grid">
+        <article class="event-resident-card" data-featured-card>
+          <div class="event-resident-card__media">
+            <img src="images/diossa-placeholder.jpg" alt="Diossa portrait" loading="lazy">
+            <img src="images/pcitureFrame.png" alt="" class="event-resident-card__frame" loading="lazy">
+          </div>
+          <div class="event-resident-card__copy">
+            <span>01 / Diossa</span>
+            <p>Velvet pressure. Ritual control. Hypnotic pulse and after-hours magnetism.</p>
+          </div>
+        </article>
+
+        <article class="event-resident-card" data-featured-card>
+          <div class="event-resident-card__media">
+            <img src="images/junk-file-placeholder.jpg" alt="Junk File portrait" loading="lazy">
+          </div>
+          <div class="event-resident-card__copy">
+            <span>02 / Junk File</span>
+            <p>Broken-edge rhythm, corrupted beauty, and concrete-dug pressure.</p>
+          </div>
+        </article>
+
+        <article class="event-resident-card" data-featured-card>
+          <div class="event-resident-card__media">
+            <img src="images/animal-placeholder.png" alt="Animal portrait" loading="lazy">
+          </div>
+          <div class="event-resident-card__copy">
+            <span>03 / Animal</span>
+            <p>Hard groove, body music, and the kind of impact that lingers after sunrise.</p>
+          </div>
+        </article>
+
+        <article class="event-resident-card" data-featured-card>
+          <div class="event-resident-card__media">
+            <img src="images/andres-garcil-placeholder.webp" alt="Andres Garcil portrait" loading="lazy">
+          </div>
+          <div class="event-resident-card__copy">
+            <span>04 / Andres Garcil</span>
+            <p>Measured architecture, dub pressure, and patient room control.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="folio folio--ledger" id="ledger" data-lift>
+      <header class="section-head section-head--split">
+        <div>
+          <p class="issue-label" data-reveal>Full Schedule / Roster Of Nights</p>
+          <h2 class="issue-title" data-reveal>The Ledger</h2>
+        </div>
+        <p class="section-head__text" data-reveal>
+          Upcoming first, then the residue of earlier rooms. Experimental in form, still readable on purpose.
+        </p>
+      </header>
+
+      <div class="ledger-stack">
+        <article class="ledger-row" data-ledger-row>
+          <div class="ledger-row__date"><strong>22</strong><span>MAR</span></div>
+          <div class="ledger-row__copy">
+            <h3>Subliminal Frequencies</h3>
+            <p>Basement NYC</p>
+          </div>
+          <span class="ledger-row__status">Upcoming</span>
+          <span class="ledger-row__code">AG-001</span>
+        </article>
+
+        <article class="ledger-row" data-ledger-row>
+          <div class="ledger-row__date"><strong>05</strong><span>APR</span></div>
+          <div class="ledger-row__copy">
+            <h3>Nocturnal Transmission</h3>
+            <p>Knockdown Center</p>
+          </div>
+          <span class="ledger-row__status">Upcoming</span>
+          <span class="ledger-row__code">AG-002</span>
+        </article>
+
+        <article class="ledger-row" data-ledger-row>
+          <div class="ledger-row__date"><strong>19</strong><span>APR</span></div>
+          <div class="ledger-row__copy">
+            <h3>Raw Signal</h3>
+            <p>Elsewhere Zone 1</p>
+          </div>
+          <span class="ledger-row__status">Upcoming</span>
+          <span class="ledger-row__code">AG-003</span>
+        </article>
+
+        <article class="ledger-row" data-ledger-row>
+          <div class="ledger-row__date"><strong>10</strong><span>MAY</span></div>
+          <div class="ledger-row__copy">
+            <h3>Under The Surface</h3>
+            <p>Good Room</p>
+          </div>
+          <span class="ledger-row__status">Upcoming</span>
+          <span class="ledger-row__code">AG-004</span>
+        </article>
+
+        <article class="ledger-row ledger-row--past" data-ledger-row>
+          <div class="ledger-row__date"><strong>06</strong><span>MAR</span></div>
+          <div class="ledger-row__copy">
+            <h3>Agape Warehouse Session</h3>
+            <p>Brooklyn / Private Room</p>
+          </div>
+          <span class="ledger-row__status">Past</span>
+          <span class="ledger-row__code">AG-000</span>
+        </article>
+
+        <article class="ledger-row ledger-row--past" data-ledger-row>
+          <div class="ledger-row__date"><strong>15</strong><span>FEB</span></div>
+          <div class="ledger-row__copy">
+            <h3>Body Text</h3>
+            <p>Basement NYC</p>
+          </div>
+          <span class="ledger-row__status">Past</span>
+          <span class="ledger-row__code">AG-118</span>
+        </article>
+
+        <article class="ledger-row ledger-row--past" data-ledger-row>
+          <div class="ledger-row__date"><strong>27</strong><span>JAN</span></div>
+          <div class="ledger-row__copy">
+            <h3>Pressure Study</h3>
+            <p>Ridgewood / Studio Floor</p>
+          </div>
+          <span class="ledger-row__status">Past</span>
+          <span class="ledger-row__code">AG-114</span>
+        </article>
+
+        <article class="ledger-row ledger-row--past" data-ledger-row>
+          <div class="ledger-row__date"><strong>14</strong><span>DEC</span></div>
+          <div class="ledger-row__copy">
+            <h3>Room Tone</h3>
+            <p>Good Room</p>
+          </div>
+          <span class="ledger-row__status">Past</span>
+          <span class="ledger-row__code">AG-108</span>
+        </article>
+      </div>
+    </section>
+
+    <footer class="folio folio--events-footer" id="closing" data-lift>
+      <div class="events-footer">
+        <div class="events-footer__brand">
+          <img src="images/agape_logo_white.png" alt="Agape logo" class="events-footer__logo" loading="lazy">
+          <p class="events-footer__stamp">Issue 01 / Event Ledger / New York City</p>
+          <p class="events-footer__body">
+            Built like a back page, not a dead end. Residents, rooms, and a short record of what is actually happening.
+          </p>
+        </div>
+        <div class="events-footer__columns">
+          <div>
+            <h3>Residents</h3>
+            <p>Diossa</p>
+            <p>Junk File</p>
+            <p>Animal</p>
+            <p>Andres Garcil</p>
+          </div>
+          <div>
+            <h3>Links</h3>
+            <p>Instagram</p>
+            <p>SoundCloud</p>
+            <p>Resident Advisor</p>
+            <p>Bookings</p>
+          </div>
+          <div>
+            <h3>Next Issue</h3>
+            <p>More resident profiles, archive fragments, and the next run of rooms.</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js"></script>
+  <script src="js/events.js"></script>
+</body>
+</html>

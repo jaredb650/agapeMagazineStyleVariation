@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AGAPE | Issue 01</title>
+  <meta
+    name="description"
+    content="AGAPE is a gritty rave-zine mock-up for New York City's underground nights, resident artists, and event rituals."
+  >
+  <link rel="icon" href="images/agape_logo_white.png" type="image/png">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="issue-body">
+  <video class="bg-video" autoplay muted loop playsinline aria-hidden="true">
+    <source src="images/bg-loop.mp4" type="video/mp4">
+  </video>
+  <div class="paper-noise" aria-hidden="true"></div>
+
+  <div id="preloader" class="preloader" aria-hidden="true">
+    <div class="preloader__wash"></div>
+    <div class="preloader__sheet">
+      <div class="preloader__registration">
+        <span>Issue 01</span>
+        <span>Spring 2026</span>
+        <span>NYC Underground</span>
+      </div>
+      <div class="preloader__brand">
+        <img src="images/agape_logo_white.png" alt="Agape logo" class="preloader__logo">
+        <p class="preloader__title">&Auml;GAP&#274;</p>
+        <p class="preloader__subtitle">Bodies in motion. Nights worth remembering.</p>
+      </div>
+      <div class="preloader__meter">
+        <span class="preloader__meter-fill"></span>
+      </div>
+    </div>
+  </div>
+
+  <nav class="floating-nav" id="floatingNav">
+    <button
+      id="navTrigger"
+      class="floating-nav__trigger"
+      type="button"
+      aria-controls="navSheet"
+      aria-expanded="false"
+      aria-label="Open issue index"
+    >
+      <span class="floating-nav__brand">
+        <img src="images/agape_logo_white.png" alt="Agape logo" class="floating-nav__logo">
+        <span class="floating-nav__issue">Issue Index</span>
+      </span>
+      <span class="floating-nav__burger" aria-hidden="true">
+        <span></span>
+        <span></span>
+      </span>
+    </button>
+
+    <div class="floating-nav__sheet" id="navSheet">
+      <div class="floating-nav__sheet-grid">
+        <div class="floating-nav__meta">
+          <p class="floating-nav__label">Agape / Spring 2026</p>
+          <p class="floating-nav__note">A floating tab that unfolds like a clipped-in program sheet.</p>
+        </div>
+        <ul class="floating-nav__links">
+          <li><a href="#hero" data-nav-link>Cover</a></li>
+          <li><a href="#manifesto" data-nav-link>Manifesto</a></li>
+          <li><a href="#residents" data-nav-link>Residents</a></li>
+          <li><a href="#events" data-nav-link>Upcoming</a></li>
+          <li><a href="#archive" data-nav-link>Archive</a></li>
+          <li><a href="events.html" data-nav-link>All Events</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main class="issue-main" id="mainContent">
+    <section class="hero-folio" id="hero">
+      <div class="hero-folio__backdrop">
+        <img src="images/hero-crowd-wide.jpg" alt="Crowd at an Agape night" class="hero-folio__backdrop-img">
+        <div class="hero-folio__smoke"></div>
+      </div>
+      <div class="hero-folio__rail">
+        <span>AGAPE</span>
+        <span>Issue 01</span>
+        <span>Spring 2026</span>
+        <span>NYC</span>
+      </div>
+
+      <div class="hero-folio__spread folio" data-lift>
+        <div class="hero-folio__copy">
+          <p class="hero-folio__kicker" data-reveal>Printed in sweat, light, and low end.</p>
+          <h1 class="hero-folio__title" data-reveal>
+            <span>&Auml;GAP&#274;</span>
+            <em>Issue One</em>
+          </h1>
+          <p class="hero-folio__deck" data-reveal>
+            Agape is not interested in polished nightlife branding. This is a physical record of bodies, residents,
+            ticket stubs, rituals, and the floor before sunrise.
+          </p>
+          <div class="hero-folio__resident-rollcall" data-reveal>
+            <span class="hero-folio__resident-label">Residents</span>
+            <p>Diossa / Junk File / Animal / Andres Garcil</p>
+          </div>
+          <div class="hero-folio__actions" data-reveal>
+            <a href="#events" class="issue-btn issue-btn--solid">Upcoming Events</a>
+            <a href="events.html" class="issue-btn issue-btn--ghost">Open The Ledger</a>
+          </div>
+        </div>
+
+        <div class="hero-folio__cover-stack" data-reveal>
+          <article class="cover-card cover-card--portrait">
+            <img src="images/hero-dj-portrait.jpg" alt="DJ portrait at Agape" class="cover-card__image">
+            <img src="images/pcitureFrame.png" alt="" class="cover-card__frame">
+            <div class="cover-card__caption">
+              <span>Front Cover</span>
+              <strong>DJ booth / 2:47AM</strong>
+            </div>
+          </article>
+          <article class="cover-note">
+            <span>Editor’s Note</span>
+            <p>Built to feel less like a site and more like an issue you unfold, crease, and carry home.</p>
+          </article>
+        </div>
+      </div>
+
+      <div class="hero-folio__bottom-note">
+        <span>Scroll to enter the issue</span>
+      </div>
+    </section>
+
+    <section class="folio folio--residents" id="residents" data-lift>
+      <header class="section-head section-head--split">
+        <div>
+          <p class="issue-label" data-reveal>The Cast / Resident Features</p>
+          <h2 class="issue-title" data-reveal>Residents</h2>
+        </div>
+        <p class="section-head__text" data-reveal>
+          Four recurring protagonists. Not support cast. Not filler. The people who make the rooms feel authored.
+        </p>
+      </header>
+
+      <div class="resident-editorial-grid">
+        <article class="resident-feature resident-feature--lead" data-feature>
+          <div class="resident-feature__media">
+            <img src="images/diossa-placeholder.jpg" alt="Diossa portrait" class="resident-feature__image" loading="lazy">
+            <img src="images/pcitureFrame.png" alt="" class="resident-feature__frame" loading="lazy">
+          </div>
+          <div class="resident-feature__content">
+            <span class="resident-feature__num">01</span>
+            <h3>Diossa</h3>
+            <p>
+              Velvet pressure. Ritual control. The gravitational center of a room that already thinks it knows what it wants.
+            </p>
+            <span class="resident-feature__meta">NYC / hypnotic pulse / after-hours magnetism</span>
+          </div>
+        </article>
+
+        <article class="resident-feature resident-feature--stack" data-feature>
+          <div class="resident-feature__media">
+            <img src="images/junk-file-placeholder.jpg" alt="Junk File portrait" class="resident-feature__image" loading="lazy">
+          </div>
+          <div class="resident-feature__content">
+            <span class="resident-feature__num">02</span>
+            <h3>Junk File</h3>
+            <p>Broken-edge rhythm, corrupted beauty, and pressure that sounds dug out of concrete.</p>
+            <span class="resident-feature__meta">electro / breaks / debris energy</span>
+          </div>
+        </article>
+
+        <article class="resident-feature resident-feature--stack" data-feature>
+          <div class="resident-feature__media">
+            <img src="images/animal-placeholder.png" alt="Animal portrait" class="resident-feature__image" loading="lazy">
+          </div>
+          <div class="resident-feature__content">
+            <span class="resident-feature__num">03</span>
+            <h3>Animal</h3>
+            <p>Unpolished force. The set you still feel in your chest when the train doors finally open.</p>
+            <span class="resident-feature__meta">hard groove / body music / blunt impact</span>
+          </div>
+        </article>
+
+        <article class="resident-feature resident-feature--wide" data-feature>
+          <div class="resident-feature__content">
+            <span class="resident-feature__num">04</span>
+            <h3>Andres Garcil</h3>
+            <p>
+              Measured architecture and slow-burn pressure. Builds a room patiently, then turns the floor into a
+              single moving surface.
+            </p>
+            <span class="resident-feature__meta">minimal / dub pressure / room control</span>
+          </div>
+          <div class="resident-feature__media">
+            <img src="images/andres-garcil-placeholder.webp" alt="Andres Garcil portrait" class="resident-feature__image resident-feature__image--focus-top" loading="lazy">
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="folio folio--manifesto" id="manifesto" data-lift>
+      <div class="folio__spine" aria-hidden="true"></div>
+      <div class="manifesto-layout">
+        <div class="manifesto-layout__visual">
+          <figure class="manifesto-photo">
+            <img src="images/silhouette-stage-lights.jpg" alt="Silhouette under stage lights" class="manifesto-photo__img" data-parallax loading="lazy">
+            <figcaption class="manifesto-photo__caption">Transmission / low signal / no clean exits</figcaption>
+          </figure>
+          <p class="manifesto-layout__scribble">This is not a party. This is a practice.</p>
+        </div>
+
+        <div class="manifesto-layout__text">
+          <p class="issue-label" data-reveal>Editor’s Note / Opening Spread</p>
+          <h2 class="issue-title" data-reveal>We do not curate lineups. We build rituals.</h2>
+          <div class="manifesto-layout__body">
+            <p data-reveal>
+              Agape lives in the hour when the room stops behaving like a venue and starts behaving like a body.
+              The floor is the text. The bass is the margin. The air is printed with whatever the crowd can carry.
+            </p>
+            <p data-reveal>
+              We come from basements, warehouse corners, improvised booths, and all the places where a night has to
+              be earned before it can be remembered. The point is not polish. The point is charge.
+            </p>
+            <p data-reveal>
+              Every event is a page torn from a larger issue. Every resident is part of the recurring cast. Every
+              person in the room becomes part of the archive.
+            </p>
+          </div>
+          <p class="manifesto-layout__signature" data-reveal>&mdash; The Agape Collective / New York City</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="folio folio--events" id="events" data-lift>
+      <header class="section-head">
+        <p class="issue-label" data-reveal>Upcoming / Admit One</p>
+        <h2 class="issue-title" data-reveal>Ticket Stubs</h2>
+        <p class="section-head__text" data-reveal>
+          The homepage previews the next nights. The full event ledger opens on its own page.
+        </p>
+      </header>
+
+      <div class="ticket-ribbon">
+        <article class="ticket-stub" data-ticket>
+          <div class="ticket-stub__visual" style="--ticket-image:url('../images/lens-flare-dancefloor.jpg')"></div>
+          <div class="ticket-stub__body">
+            <div class="ticket-stub__date">
+              <strong>22</strong>
+              <span>MAR 2026</span>
+            </div>
+            <div class="ticket-stub__copy">
+              <h3>Subliminal Frequencies</h3>
+              <p>Basement NYC</p>
+            </div>
+            <div class="ticket-stub__code">AG-001</div>
+          </div>
+        </article>
+
+        <article class="ticket-stub ticket-stub--shift" data-ticket>
+          <div class="ticket-stub__visual" style="--ticket-image:url('../images/crowd-barrier-energy.jpg')"></div>
+          <div class="ticket-stub__body">
+            <div class="ticket-stub__date">
+              <strong>05</strong>
+              <span>APR 2026</span>
+            </div>
+            <div class="ticket-stub__copy">
+              <h3>Nocturnal Transmission</h3>
+              <p>Knockdown Center</p>
+            </div>
+            <div class="ticket-stub__code">AG-002</div>
+          </div>
+        </article>
+
+        <article class="ticket-stub" data-ticket>
+          <div class="ticket-stub__visual" style="--ticket-image:url('../images/dj-red-light.jpg')"></div>
+          <div class="ticket-stub__body">
+            <div class="ticket-stub__date">
+              <strong>19</strong>
+              <span>APR 2026</span>
+            </div>
+            <div class="ticket-stub__copy">
+              <h3>Raw Signal</h3>
+              <p>Elsewhere Zone 1</p>
+            </div>
+            <div class="ticket-stub__code">AG-003</div>
+          </div>
+        </article>
+
+        <article class="ticket-stub ticket-stub--shift" data-ticket>
+          <div class="ticket-stub__visual" style="--ticket-image:url('../images/candid-club-portrait.jpg')"></div>
+          <div class="ticket-stub__body">
+            <div class="ticket-stub__date">
+              <strong>10</strong>
+              <span>MAY 2026</span>
+            </div>
+            <div class="ticket-stub__copy">
+              <h3>Under The Surface</h3>
+              <p>Good Room</p>
+            </div>
+            <div class="ticket-stub__code">AG-004</div>
+          </div>
+        </article>
+      </div>
+
+      <div class="events-cta" data-reveal>
+        <a href="events.html" class="issue-btn issue-btn--solid issue-btn--large">View All Events</a>
+      </div>
+    </section>
+
+    <section class="folio folio--archive" id="archive" data-lift>
+      <header class="section-head section-head--split">
+        <div>
+          <p class="issue-label" data-reveal>Archive / Fragments</p>
+          <h2 class="issue-title" data-reveal>Proof Of Attendance</h2>
+        </div>
+        <p class="section-head__text" data-reveal>
+          Stills, spill, motion blur, and witness marks. A strip built from what the room leaves behind.
+        </p>
+      </header>
+
+      <div class="archive-panorama" id="archivePanorama">
+        <div class="archive-panorama__track">
+          <figure class="archive-fragment archive-fragment--tall">
+            <img src="images/hero-dj-portrait.jpg" alt="DJ booth fragment" loading="lazy">
+            <figcaption>Booth / 2:47AM</figcaption>
+          </figure>
+          <figure class="archive-fragment archive-fragment--wide">
+            <img src="images/crowd-barrier-energy.jpg" alt="Front row crowd" loading="lazy">
+            <figcaption>Front row pressure</figcaption>
+          </figure>
+          <figure class="archive-fragment">
+            <img src="images/platform-crowd-portrait.jpg" alt="Platform portrait" loading="lazy">
+            <figcaption>Platform witness</figcaption>
+          </figure>
+          <figure class="archive-fragment archive-fragment--tall">
+            <img src="images/silhouette-stage-lights.jpg" alt="Stage silhouette" loading="lazy">
+            <figcaption>Signal drop</figcaption>
+          </figure>
+          <figure class="archive-fragment archive-fragment--wide">
+            <img src="images/lens-flare-dancefloor.jpg" alt="Lens flare over dance floor" loading="lazy">
+            <figcaption>Dance floor / overexposed</figcaption>
+          </figure>
+          <figure class="archive-fragment">
+            <img src="images/dj-red-light.jpg" alt="DJ in red light" loading="lazy">
+            <figcaption>Red room</figcaption>
+          </figure>
+          <figure class="archive-fragment archive-fragment--wide">
+            <img src="images/crowd-detail-motion.jpg" alt="Crowd detail in motion" loading="lazy">
+            <figcaption>Blur / peak hour</figcaption>
+          </figure>
+          <figure class="archive-fragment">
+            <img src="images/candid-club-portrait.jpg" alt="Candid club portrait" loading="lazy">
+            <figcaption>Between sets</figcaption>
+          </figure>
+        </div>
+      </div>
+
+      <p class="archive-panorama__note">Unretouched. Unposed. The room writes itself.</p>
+    </section>
+
+    <footer class="folio folio--footer" id="footer" data-lift>
+      <div class="footer-grid">
+        <div class="footer-grid__brand">
+          <img src="images/agape_logo_white.png" alt="Agape logo" class="footer-grid__logo" loading="lazy">
+          <p class="footer-grid__stamp">&Auml;GAP&#274; / Issue 01 / New York City</p>
+        </div>
+
+        <div class="footer-grid__columns">
+          <div>
+            <h4>Connect</h4>
+            <ul>
+              <li><a href="#">Instagram</a></li>
+              <li><a href="#">SoundCloud</a></li>
+              <li><a href="#">Resident Advisor</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4>Residents</h4>
+            <ul>
+              <li>Diossa</li>
+              <li>Junk File</li>
+              <li>Animal</li>
+              <li>Andres Garcil</li>
+            </ul>
+          </div>
+          <div>
+            <h4>Issue Notes</h4>
+            <p>
+              A single-page cover story with resident features, ticket-stub previews, and a full events ledger beyond the fold.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
