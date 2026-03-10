@@ -1,7 +1,6 @@
 /* ═══════════════════════════════════════════════
    AGAPE — Magazine Page-Turn System
-   Clean implementation: no conflicting transforms,
-   no overlapping pins. Each page peels on scroll.
+   Bidirectional: works scrolling up AND down.
    ═══════════════════════════════════════════════ */
 
 const PRELOADER_KEY = "agape_issue_visited";
@@ -68,7 +67,7 @@ function runPreloader() {
   });
 }
 
-/* ─── FALLBACK (no GSAP or reduced motion) ─── */
+/* ─── FALLBACK ─── */
 function fallback() {
   document.querySelectorAll("[data-reveal]").forEach((n) => {
     n.style.opacity = "1";
@@ -77,7 +76,7 @@ function fallback() {
 }
 
 /* ═══════════════════════════════════════════════
-   MAGAZINE ANIMATION SYSTEM
+   MAGAZINE SYSTEM
    ═══════════════════════════════════════════════ */
 function initMagazine() {
   if (!window.gsap || !window.ScrollTrigger || REDUCED()) {
@@ -86,30 +85,30 @@ function initMagazine() {
   }
   gsap.registerPlugin(ScrollTrigger);
 
-  // ── Inject fold corners + page numbers into each [data-page] ──
+  // ── Inject fold corners + page numbers ──
   document.querySelectorAll(".folio[data-page]").forEach((page) => {
-    // Fold corner element
     const fold = document.createElement("div");
     fold.className = "folio__fold";
-    fold.innerHTML = '<div class="folio__fold-corner"></div><div class="folio__fold-shadow"></div>';
     page.appendChild(fold);
 
-    // Page number
+    const shadow = document.createElement("div");
+    shadow.className = "folio__fold-shadow";
+    page.appendChild(shadow);
+
     const num = document.createElement("div");
     num.className = "folio__page-num";
     num.textContent = "pg. " + page.dataset.page;
     page.appendChild(num);
   });
 
-  // ── HERO SECTION ──
+  // ── HERO ──
   const heroImg = document.querySelector(".hero-folio__backdrop-img");
   if (heroImg) {
-    // Intro zoom
     gsap.fromTo(heroImg, { scale: 1.12 }, { scale: 1, duration: 2, ease: "power2.out" });
-    // Parallax drift
+
+    // Parallax
     gsap.to(heroImg, {
-      y: 100,
-      ease: "none",
+      y: 100, ease: "none",
       scrollTrigger: {
         trigger: ".hero-folio",
         start: "top top",
@@ -119,103 +118,110 @@ function initMagazine() {
     });
   }
 
-  // Hero peel-away: pin the hero, then peel it up like lifting a cover
+  // Hero fades as you scroll down — NO pin, just scrubbed opacity/scale
   const hero = document.querySelector(".hero-folio");
   if (hero) {
-    const heroTL = gsap.timeline({
+    gsap.to(hero, {
+      scale: 0.93,
+      opacity: 0,
+      ease: "none",
       scrollTrigger: {
         trigger: hero,
         start: "top top",
-        end: "+=80%",
-        scrub: 0.4,
-        pin: true,
-        pinSpacing: true,
-        anticipatePin: 1,
+        end: "bottom top",
+        scrub: true,
       },
-    });
-    heroTL.to(hero, {
-      yPercent: -12,
-      scale: 0.92,
-      opacity: 0,
-      ease: "power1.in",
     });
   }
 
-  // ── TEXT REVEALS ──
+  // ── TEXT REVEALS — use toggleActions so they reverse on scroll up ──
   document.querySelectorAll("[data-reveal]").forEach((node) => {
-    gsap.to(node, {
-      opacity: 1, y: 0, duration: 0.8, ease: "power3.out",
-      scrollTrigger: { trigger: node, start: "top 88%" },
-    });
+    gsap.fromTo(node,
+      { opacity: 0, y: 24 },
+      {
+        opacity: 1, y: 0, duration: 0.8, ease: "power3.out",
+        scrollTrigger: {
+          trigger: node,
+          start: "top 88%",
+          toggleActions: "play none none reverse",
+        },
+      }
+    );
   });
 
-  // ── FOLIO PAGE-TURN SYSTEM ──
+  // ── PAGE-TURN: each folio peels as it scrolls out of view ──
   const pages = gsap.utils.toArray(".folio[data-page]");
 
   pages.forEach((page, i) => {
     const isLast = i === pages.length - 1;
     const fold = page.querySelector(".folio__fold");
-    const foldCorner = page.querySelector(".folio__fold-corner");
-    const foldShadow = page.querySelector(".folio__fold-shadow");
+    const shadow = page.querySelector(".folio__fold-shadow");
 
-    if (isLast) return; // Last page (footer) doesn't peel
+    if (isLast) return;
 
-    // Create a timeline that peels this page away
+    // Peel timeline — scrubbed, naturally reverses on scroll up
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: page,
-        start: "bottom 90%",
-        end: "bottom 10%",
-        scrub: 0.5,
+        start: "bottom 85%",
+        end: "bottom 15%",
+        scrub: 0.3,
       },
     });
 
-    // Page lifts up and fades — simple Y + opacity, no conflicting rotations
+    // Page lifts and fades
     tl.to(page, {
-      yPercent: -6,
-      scale: 0.96,
-      opacity: 0.15,
-      ease: "power2.in",
+      yPercent: -4,
+      scale: 0.97,
+      opacity: 0.2,
+      ease: "none",
     }, 0);
 
-    // Fold corner grows from 0 to full size
-    if (foldCorner) {
-      tl.fromTo(foldCorner,
-        { "--fold-size": "0px" },
-        { "--fold-size": "140px", ease: "power2.out" },
+    // Fold corner scales up from nothing
+    if (fold) {
+      tl.fromTo(fold,
+        { scale: 0, opacity: 0 },
+        { scale: 1, opacity: 1, ease: "power2.out" },
         0
       );
     }
 
-    // Fold shadow fades in then out
-    if (foldShadow) {
-      tl.fromTo(foldShadow,
+    // Shadow appears under fold
+    if (shadow) {
+      tl.fromTo(shadow,
         { opacity: 0 },
-        { opacity: 0.8, ease: "power1.out", duration: 0.5 },
+        { opacity: 0.6, ease: "none" },
         0
-      );
-      tl.to(foldShadow,
-        { opacity: 0, ease: "power1.in", duration: 0.5 },
-        0.5
       );
     }
   });
 
-  // ── RESIDENT CARDS ──
-  document.querySelectorAll("[data-feature]").forEach((card, i) => {
-    gsap.from(card, {
-      y: 50, opacity: 0, duration: 0.9, ease: "power3.out",
-      scrollTrigger: { trigger: card, start: "top 86%" },
-    });
+  // ── RESIDENT CARDS — toggleActions for reversibility ──
+  document.querySelectorAll("[data-feature]").forEach((card) => {
+    gsap.fromTo(card,
+      { y: 50, opacity: 0 },
+      {
+        y: 0, opacity: 1, duration: 0.9, ease: "power3.out",
+        scrollTrigger: {
+          trigger: card, start: "top 86%",
+          toggleActions: "play none none reverse",
+        },
+      }
+    );
   });
 
   // ── TICKET STUBS ──
   document.querySelectorAll("[data-ticket]").forEach((ticket, i) => {
-    gsap.from(ticket, {
-      x: i % 2 === 0 ? -50 : 50,
-      opacity: 0, duration: 0.75, ease: "power2.out",
-      scrollTrigger: { trigger: ticket, start: "top 90%" },
-    });
+    gsap.fromTo(ticket,
+      { x: i % 2 === 0 ? -50 : 50, opacity: 0 },
+      {
+        x: 0, opacity: 1, duration: 0.75, ease: "power2.out",
+        scrollTrigger: {
+          trigger: ticket, start: "top 90%",
+          toggleActions: "play none none reverse",
+        },
+      }
+    );
   });
 
   // ── PARALLAX IMAGES ──
@@ -249,12 +255,19 @@ function initMagazine() {
     });
   }
 
-  // ── PAGE NUMBERS FADE IN ──
+  // ── PAGE NUMBER FADE ──
   document.querySelectorAll(".folio__page-num").forEach((num) => {
-    gsap.from(num, {
-      opacity: 0, x: 20, duration: 0.6, ease: "power2.out",
-      scrollTrigger: { trigger: num.closest(".folio"), start: "top 70%" },
-    });
+    gsap.fromTo(num,
+      { opacity: 0, x: 20 },
+      {
+        opacity: 1, x: 0, duration: 0.6, ease: "power2.out",
+        scrollTrigger: {
+          trigger: num.closest(".folio"),
+          start: "top 70%",
+          toggleActions: "play none none reverse",
+        },
+      }
+    );
   });
 }
 
